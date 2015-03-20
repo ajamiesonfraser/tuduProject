@@ -29,6 +29,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+      .state('login', {
+        url: "/login",
+        templateUrl: "templates/login.html",
+        controller: 'LoginCtrl'
+
+      })
+
+    // This state will display the facebook profile information after login has been made
+     // .state('facebookProfile', {
+     //   url: '/facebookProfile',
+      //  templateUrl: 'templates/facebookProfile.html',
+      //  controller: 'FacebookProfileCtrl'
+   //   })
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: "/tab",
@@ -38,46 +51,35 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
 
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+
+
+      .state('tab.events', {
+        url: "/events",
+        views: {
+          'events': {
+            templateUrl: "templates/events.html",
+            controller: 'EventsCtrl'
+          }
         }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+      })
+      .state('tab.event', {
+        url: "/events/:eventId",
+        views: {
+          'events': {
+            templateUrl: "templates/event-detail.html",
+            controller: 'EventCtrl'
+          }
         }
-      }
-    })
+      })
 
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
-      }
-    }
-  });
-
+    // This state will display the facebook profile information after login has been made
+      .state('facebookProfile', {
+        url: '/facebookProfile',
+        templateUrl: 'templates/facebookProfile.html',
+        controller: 'FacebookProfileCtrl'
+      })
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/events');
 
 });

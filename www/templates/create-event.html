@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+<ion-view view-title="tudu">
+    <ion-content
+            padding="false"
+            has-tabs="true"
+            has-header="true"
+            >
+        <div ng-controller="CreateEventCtrl" class="list list-inset">
+            <label class="item item-input">
+                <input type="text" placeholder="Name" ng-model="data.name">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Type" ng-model="data.type">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Venue" ng-model="data.venue">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Location" ng-model="data.location">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Date" ng-model="data.date">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Image" ng-model="data.eventimg">
+            </label>
+            <button  class="button button-block button-calm" ng-click="nameSubmit()">Submit</button>
+        </div>
+    </ion-content>
+</ion-view>

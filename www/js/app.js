@@ -51,7 +51,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
-
+.state('tab.createevent', {
+        url: "/createevent",
+        views:{
+          'createevent': {
+            templateUrl: "templates/create-event.html",
+            controller: 'CreateEventCtrl'
+          }
+        }
+      })
 
 
       .state('tab.events', {
@@ -74,12 +82,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       })
 
     // This state will display the facebook profile information after login has been made
-      .state('facebookProfile', {
+      .state('tab.facebookProfile', {
         url: '/facebookProfile',
-        templateUrl: 'templates/facebookProfile.html',
-        controller: 'FacebookProfileCtrl'
-      })
+        views: {
+          'facebookProfile': {
+            templateUrl: 'templates/facebookProfile.html',
+            controller: 'FacebookProfileCtrl'
+          }
+        }
+      });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/events');
+  $urlRouterProvider.otherwise('tab/events');
 
 });
